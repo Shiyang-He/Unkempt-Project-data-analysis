@@ -36,6 +36,9 @@ awk 'BEGIN{OFS="\t"};$1!="genes"{$2=sprintf("%.0f",250000*($2/266561));$3=sprint
 Rscript deseq.R UNK.RNAseq.featureCounts.combine.xls.unk.unbound.normalized.xls coldata contrast UNK.RNAseq 
 
 # step 8: draw volcanoplots (this step requries iCLIP result file: UNK.iCLIP.gene.counts.xls.combined.xls.classified.xls)
+Rscript volcano.R UNK.RNAseq.WT.vs.Uninduced.xls
+Rscript volcano.R UNK.RNAseq.3M.vs.Uninduced.xls
+Rscript volcano.R UNK.RNAseq.dPAM2.vs.Uninduced.xls
 
 
   
