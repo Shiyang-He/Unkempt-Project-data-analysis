@@ -7,9 +7,13 @@ library(ggforce)
 library(dplyr)
 
 deg=read.table(argv[1],header=T,row.names=1)
-filename=argv[1]
-argv[1]=str_replace(argv[1],".pc.xls","")
-conditions=c("3M","dPAM2","WT")
+filename=str_replace(argv[1],".xls","")
+b=strsplit(argv[1],"\\.vs\\.")[[1]][1]
+c=strsplit(argv[1],"\\.vs\\.")[[1]][2]
+b=strsplit(b,"\\.")[[1]][-1]
+c=strsplit(c,"\\.")[[1]][1]
+
+conditions=c(b,c)
 df <- read.table(text = "",colClasses = c("character", "character", "character", "integer"),col.names=c("Condition","Group","Bound","Count"))
 for (i in c(1:8)){
 	a=read.table(paste(argv[1],".g",i,".bound",sep=""),header=T,sep="\t",row.names=1)
@@ -127,9 +131,6 @@ volcano_plot=volcano_plot+
 		panel.border = element_blank(),
 	 	panel.background = element_blank())
 
-
-filename=str_replace(filename,".xls","")
-p <- ggplot(data.frame(x=1, y=1), aes(x,y)) + geom_point(col=rgb(1,1,1,0))+xlab("")+ylab("")+theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),axis.line = element_line(colour = rgb(1,1,1,0)),panel.border = element_blank(),panel.background = element_blank())+theme_void()
 width=8
 if (legend==1){width=10}
 png(paste(filename,".png",sep="."),width=width,height=7,res=350,units="in")
