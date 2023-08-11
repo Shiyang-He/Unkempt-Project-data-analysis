@@ -36,7 +36,7 @@ head -1 UNK.RNAseq.featureCounts.combine.xls >UNK.RNAseq.featureCounts.combine.x
 awk 'BEGIN{OFS="\t"};$1!="genes"{$2=sprintf("%.0f",250000*($2/266561));$3=sprintf("%.0f",250000*($3/190328));$4=sprintf("%.0f",250000*($4/233278));$5=sprintf("%.0f",250000*($5/226218));$6=sprintf("%.0f",250000*($6/282778));$7=sprintf("%.0f",250000*($7/230812));$8=sprintf("%.0f",250000*($8/245494));$9=sprintf("%.0f",250000*($9/234755));$10=sprintf("%.0f",250000*($10/243683));$11=sprintf("%.0f",250000*($11/274887));$12=sprintf("%.0f",250000*($12/260257));$13=sprintf("%.0f",250000*($13/300119));print $0}' UNK.RNAseq.featureCounts.combine.xls >>UNK.RNAseq.featureCounts.combine.xls.unk.unbound.normalized.xls  # 250000 is a arbitary number close to the average of UNK unbound gene counts. 
 
 # step 7: perform DEG analysis with DEseq2
-Rscript deseq.R UNK.RNAseq.featureCounts.combine.xls.unk.unbound.normalized.xls coldata contrast UNK.RNAseq 
+Rscript deseq.R UNK.RNAseq.featureCounts.combine.xls.unk.unbound.normalized.xls RNA_seq.coldata RNA_seq.contrast UNK.RNAseq 
 
 # step 8: draw volcanoplots (this step requries iCLIP result file: UNK.iCLIP.gene.counts.xls.combined.xls.classified.xls)
 Rscript volcano.R UNK.RNAseq.WT.vs.Uninduced.xls
