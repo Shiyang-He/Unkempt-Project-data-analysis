@@ -13,7 +13,6 @@
 # rtracklayer (version 1.58.0) (https://www.bioconductor.org/packages/release/bioc/html/rtracklayer.html)
 # GenomicRanges (version 1.50.2) (https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
 # ChIPseeker (version 1.34.1) (https://www.bioconductor.org/packages/release/bioc/html/ChIPseeker.html)
-# clusterProfiler (version 4.6.0) (https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
 # AnnotationDbi  (version 1.60.0) (https://www.bioconductor.org/packages/release/bioc/html/AnnotationDbi.html)
 # org.Hs.eg.db (version 3.16.0) (https://www.bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html)
 
