@@ -7,6 +7,9 @@
 # cufflinks v2.2.1 (http://cole-trapnell-lab.github.io/cufflinks/install/)
 # DEseq2 (https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
 # ggplot2 (https://www.rdocumentation.org/packages/ggplot2/versions/3.4.2)
+
+# hg38 genome: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz  (unzip it after download)
+# gencode V35 annotation gtf: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_35/gencode.v35.annotation.gtf.gz (unzip it after download)
 ########## prerequisite ##########
 
 # step 1: building STAR mapping indexes
