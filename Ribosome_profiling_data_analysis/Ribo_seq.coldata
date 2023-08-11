@@ -1,0 +1,13 @@
+sample	condition
+Ribo_seq.3M_L11 3M
+Ribo_seq.3M_L3 3M
+Ribo_seq.dPAM2_L12	dPAM2
+Ribo_seq.dPAM2_L4	dPAM2
+Ribo_seq.Uninduced_CNOT9ko_1	Uninduced_CNOT9ko
+Ribo_seq.Uninduced_CNOT9ko_2	Uninduced_CNOT9ko
+Ribo_seq.Uninduced_L1	Uninduced
+Ribo_seq.Uninduced_L9	Uninduced
+Ribo_seq.WT_CNOT9ko_1	WT_CNOT9ko
+Ribo_seq.WT_CNOT9ko_2	WT_CNOT9ko
+Ribo_seq.WT_L10	WT
+Ribo_seq.WT_L2	WT

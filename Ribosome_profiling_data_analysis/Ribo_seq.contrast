@@ -1,0 +1,7 @@
+control	treat
+Uninduced	3M
+Uninduced	dPAM2
+Uninduced	WT
+Uninduced_CNOT9ko	WT_CNOT9ko
+WT_CNOT9ko	WT
+Uninduced_CNOT9ko	WT
