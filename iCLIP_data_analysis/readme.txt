@@ -3,7 +3,7 @@
 # STAR-2.7.3a (https://github.com/alexdobin/STAR/releases/tag/2.7.3a) was used for mapping. Please refer to this page (https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) for installation instructions. 
 # samtools 1.14 (http://github.com/samtools/)
 # bedtools v2.29.2 (https://bedtools.readthedocs.io/en/latest/content/installation.html)
-# kentUtils (version v365) (https://github.com/ENCODEDCC/kentUtils) 
+# kentUtils (version v365) (https://github.com/ENCODE-DCC/kentUtils) 
 # PureCLIP (version 1.3.0) (https://github.com/skrakau/PureCLIP)
 # FASTX-Toolkit (version 0.0.14) (http://hannonlab.cshl.edu/fastx_toolkit/)
 # seqtk (version 1.3) (https://github.com/lh3/seqtk)
