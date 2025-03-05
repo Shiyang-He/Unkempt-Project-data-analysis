@@ -44,3 +44,12 @@ pureclip -i Sample1.dedup.bam -bai Sample1.dedup.bam.bai -g hg38.fa -ld -nt 8 -o
 
 # step 6: peak annotation
 Rscript annotation.R Sample1.PureCLIP.crosslink_sites.bed 
+
+# draw meta-gene profile
+Rscript draw.meta.gene.100.percent.overlay.R WT.100percent.matrix.sum 3M.100percent.matrix.sum dPAM2.100percent.matrix.sum motif.density.TAG.100.percent.matrix.sum UNK.iCLIP.metagene.plot.with.UAG 
+
+# draw motif enrichment heatmap 
+Rscript draw.motif.enrichment.heatmap.R WT.slide.table WT.fa.table 3M.slide.table 3M.fa.table dPAM2.slide.table dPAM2.fa.table Motif.enrichment.heatmap.pdf 4
+
+# draw motif enrichment overlay plot
+Rscript draw.motif.enrichment.overlay.R WT.slide.table WT.fa.table 3M.slide.table 3M.fa.table dPAM2.slide.table dPAM2.fa.table Motif.enrichment.overlay.pdf 4
