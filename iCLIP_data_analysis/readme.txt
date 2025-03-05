@@ -39,6 +39,14 @@ bedtools shift -m 1 -p -1 -i Sample1.dedup.bam.bed -g hg38.fa.fai >Sample1.dedup
 bedtools genomecov -bg -5 -i Sample1.dedup.bam.bed.shift.bed -g hg38.fa.fai |sort -k1,1 -k2,2n >Sample1.bedgraph
 bedGraphToBigWig Sample1.bedgraph hg38.fa.fai Sample1.bw
 
+# normalize bedgraph to RPM bedgraph (the number 68821122, 66264322, and  78096442 are total reads from the merged samples)
+awk 'BEGIN{OFS="\t"};{$4=$4/(68821122/1000000);print $0}' 3M.merge.bam.shifted.bedgraph >3M.merge.bam.shifted.bedgraph.rpm.bedgraph
+bedGraphToBigWig 3M.merge.bam.shifted.bedgraph.rpm.bedgraph hg38.fa.fai 3M.rpm.bw
+awk 'BEGIN{OFS="\t"};{$4=$4/(66264322/1000000);print $0}' dPAM2.merge.bam.shifted.bedgraph >dPAM2.merge.bam.shifted.bedgraph.rpm.bedgraph 
+bedGraphToBigWig dPAM2.merge.bam.shifted.bedgraph.rpm.bedgraph hg38.fa.fai dPAM2.rpm.bw
+awk 'BEGIN{OFS="\t"};{$4=$4/(78096442/1000000);print $0}' WT.merge.bam.shifted.bedgraph >WT.merge.bam.shifted.bedgraph.rpm.bedgraph 
+bedGraphToBigWig WT.merge.bam.shifted.bedgraph.rpm.bedgraph hg38.fa.fai WT.rpm.bw
+
 # step 5: call peaks with pureclip
 pureclip -i Sample1.dedup.bam -bai Sample1.dedup.bam.bai -g hg38.fa -ld -nt 8 -o Sample1.PureCLIP.crosslink_sites.bed -or Sample1.PureCLIP.crosslink_sites.region.bed
 
@@ -46,6 +54,11 @@ pureclip -i Sample1.dedup.bam -bai Sample1.dedup.bam.bai -g hg38.fa -ld -nt 8 -o
 Rscript annotation.R Sample1.PureCLIP.crosslink_sites.bed 
 
 # draw meta-gene profile
+for i in 3M.rpm.bw WT.rpm.bw dPAM2.rpm.bw; 
+  do python3 get.read.count.matrix.from.whole.genenome.mapping.py $i gencode.v35.pc_transcripts.longest.fa.table gencode.v35.annotation.gtf $i.full.matrix; 
+     python3 average.depth.100.bins.py.with.up.down.stream.py $i.full.matrix $i.100percent.marix
+     python3 sum.matrix.400.py $i.100percent.marix $i.100percent.marix.sum
+  done
 Rscript draw.meta.gene.100.percent.overlay.R WT.100percent.matrix.sum 3M.100percent.matrix.sum dPAM2.100percent.matrix.sum motif.density.TAG.100.percent.matrix.sum UNK.iCLIP.metagene.plot.with.UAG 
 
 # draw motif enrichment heatmap 
