@@ -54,8 +54,8 @@ pureclip -i Sample1.dedup.bam -bai Sample1.dedup.bam.bai -g hg38.fa -ld -nt 8 -o
 Rscript annotation.R Sample1.PureCLIP.crosslink_sites.bed 
 
 # draw meta-gene profile
-for i in 3M.rpm.bw WT.rpm.bw dPAM2.rpm.bw; 
-  do python3 get.read.count.matrix.from.whole.genenome.mapping.py $i gencode.v35.pc_transcripts.longest.fa.table gencode.v35.annotation.gtf $i.full.matrix; 
+for i in 3M WT dPAM2; 
+  do python3 get.read.count.matrix.from.whole.genenome.mapping.py $i.rpm.bw gencode.v35.pc_transcripts.longest.fa.table gencode.v35.annotation.gtf $i.full.matrix; 
      python3 average.depth.100.bins.py.with.up.down.stream.py $i.full.matrix $i.100percent.marix
      python3 sum.matrix.400.py $i.100percent.marix $i.100percent.marix.sum
   done
